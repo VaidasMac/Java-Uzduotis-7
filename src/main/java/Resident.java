@@ -1,9 +1,18 @@
 import java.util.ArrayList;
 
 public class Resident {
+    public Resident(String name, String lastName, String stayLenght) {
+        this.name = name;
+        this.lastName = lastName;
+        this.stayLenght = stayLenght;
+    }
+
     String name;
     String lastName;
     ArrayList<Room> rooms = new ArrayList<>();
+   // Object room;
+    int number;
+    int floor;
     String stayLenght;
     public String getName() {
         return name;
@@ -40,6 +49,9 @@ public class Resident {
 
     }
 
-    public void setRooms() {
+    public void setRooms(int number,int floor) {
+        this.number = number;
+        this.floor = floor;
+
     }
 }

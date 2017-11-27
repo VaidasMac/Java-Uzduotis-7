@@ -1,5 +1,5 @@
 public class Room {
-    int roomNumber;
+    int roomNumber = 0;
 
     public int getRoomNumber() {
         return roomNumber;
@@ -49,10 +49,28 @@ public class Room {
         this.roomIsClean = roomIsClean;
     }
 
-    int roomFloor;
-    String roomType;
+    int roomFloor =0;
+    String roomType = "Regular";
+
+
     int cost = 47;
-    String roomSize;
+    String roomSize= "Small";
     boolean roomIsClean = true;
+
+    public Room(int roomNumber, int roomFloor, String roomType, int cost, String roomSize, boolean roomIsClean, boolean roomIsTaken) {
+        this.roomNumber = roomNumber;
+        this.roomFloor = roomFloor;
+        this.roomType = roomType;
+        this.cost = cost;
+        this.roomSize = roomSize;
+        this.roomIsClean = roomIsClean;
+        this.roomIsTaken = roomIsTaken;
+    }
+
+    public void setRoomIsTaken(boolean roomIsTaken) {
+        this.roomIsTaken = roomIsTaken;
+    }
+
+    boolean roomIsTaken = false;
 
 }

@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Hotel {
     String name = "Europa City Vilnius";
@@ -67,37 +69,69 @@ public class Hotel {
     }
 
     public void printStaffList(){
-        for (Staff staff: staffList
-             ) {
-            System.out.println(staffList.toString());
+        for(int i =0;i<staffList.size();i++){
+            System.out.println(staffList.get(i).getName()+" "+staffList.get(i).getLastName());
         }
     }
-    public void addStaff(){
-
+    public void addStaff(Staff staff){
+        staffList.add(staff);
     }
     public void printHotelRoomList(){
 
     }
-    public void addRooms(){
-
+    public void addRooms(Room room){
+        roomsList.add(room);
     }
 
     public void printResidentList(){
+        for(int i =0;i<residentsList.size();i++) {
 
+            System.out.println(residentsList.get(i).getName()+" "+residentsList.get(i).getLastName()+" Room number: "+ residentsList.get(i).number+ " Floor number: " + residentsList.get(i).floor);
+        }
     }
     public void printMostExpensiveRoom(){
 
+        ArrayList<Integer> arrayList=new ArrayList<>();
+        for(int i =0;i<roomsList.size();i++){
+           arrayList.add(roomsList.get(i).getCost());
+        }
+        System.out.println(Collections.max(arrayList));
     }
-    public void printCheapestRoom(){
 
+    public void printCheapestRoom(){
+        ArrayList<Integer> arrayList=new ArrayList<>();
+        for(int i =0;i<roomsList.size();i++){
+            arrayList.add(roomsList.get(i).getCost());
+        }
+        System.out.println(Collections.min(arrayList));
     }
     public void printTakenRooms(){
 
-    }
-    public void printFreeRooms(){
+        for(int i =0;i<roomsList.size();i++){
+            if(roomsList.get(i).roomIsTaken == true){
+                System.out.println(roomsList.get(i).toString());
+            }
+
+        }
 
     }
-    public void addResident(){
+    public void printFreeRooms(){
+        for(int i =0;i<roomsList.size();i++){
+            if(roomsList.get(i).roomIsTaken != true){
+                System.out.println("Room number "+roomsList.get(i).getRoomNumber()+" on the "+roomsList.get(i).getRoomFloor()+" floor is free");
+            }
+
+        }
+    }
+    public void addResident(Resident resident,int roomNumber,int floorNumber){
+        residentsList.add(resident);
+        for (int i =0;i<roomsList.size();i++){
+            if( roomNumber == roomsList.get(i).getRoomNumber() && floorNumber == roomsList.get(i).getRoomFloor()){
+                roomsList.get(i).setRoomIsTaken(true);
+                resident.setRooms(roomsList.get(i).getRoomNumber(),roomsList.get(i).getRoomFloor());
+
+            }
+        }
 
     }
 }

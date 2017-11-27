@@ -1,7 +1,7 @@
 public class Staff {
-    String name;
-    String role;
-    String lastName;
+    String name = "Vardas";
+    String role = "Role";
+    String lastName= "Pavarde";
 
     public Hotel getHotel() {
         return hotel;
