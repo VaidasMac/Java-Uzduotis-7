@@ -77,7 +77,9 @@ public class Hotel {
         staffList.add(staff);
     }
     public void printHotelRoomList(){
-
+        for(int i = 0; i<roomsList.size();i++){
+            System.out.println(roomsList.get(i).toString());
+        }
     }
     public void addRooms(Room room){
         roomsList.add(room);
@@ -123,15 +125,26 @@ public class Hotel {
 
         }
     }
-    public void addResident(Resident resident,int roomNumber,int floorNumber){
+    public void addResident(Resident resident,int roomNumber,int floorNumber,String staylengh){
         residentsList.add(resident);
         for (int i =0;i<roomsList.size();i++){
             if( roomNumber == roomsList.get(i).getRoomNumber() && floorNumber == roomsList.get(i).getRoomFloor()){
                 roomsList.get(i).setRoomIsTaken(true);
                 resident.setRooms(roomsList.get(i).getRoomNumber(),roomsList.get(i).getRoomFloor());
-
+                resident.setStayLenght(staylengh);
             }
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel " +
+                "\nname='" + name + '\'' +
+                ",\n address='" + address + '\'' +
+                ",\n floors=" + floors +
+                ",\n starRating=" + starRating +
+                ",\n roomsList=" + roomsList +
+                '}';
     }
 }

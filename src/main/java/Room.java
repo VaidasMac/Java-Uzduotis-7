@@ -1,6 +1,19 @@
 public class Room {
     int roomNumber = 0;
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomNumber=" + roomNumber +
+                ", roomFloor=" + roomFloor +
+                ", roomType='" + roomType + '\'' +
+                ", cost=" + cost +
+                ", roomSize='" + roomSize + '\'' +
+                ", roomIsClean=" + roomIsClean +
+                ", roomIsTaken=" + roomIsTaken +
+                '}';
+    }
+
     public int getRoomNumber() {
         return roomNumber;
     }
